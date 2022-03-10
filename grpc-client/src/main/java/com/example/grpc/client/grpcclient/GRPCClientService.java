@@ -16,13 +16,13 @@ public class GRPCClientService {
     public String ping() {
         	ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
                 .usePlaintext()
-                .build();        
+                .build();
 		PingPongServiceGrpc.PingPongServiceBlockingStub stub
-                = PingPongServiceGrpc.newBlockingStub(channel);        
+                = PingPongServiceGrpc.newBlockingStub(channel);
 		PongResponse helloResponse = stub.ping(PingRequest.newBuilder()
                 .setPing("")
-                .build());        
-		channel.shutdown();        
+                .build());
+		channel.shutdown();
 		return helloResponse.getPong();
     }
     public String add(){
@@ -41,7 +41,7 @@ public class GRPCClientService {
 			.setB10(5)
 			.setB11(6)
 			.build());
-		String resp= A.getC00()+" "+A.getC01()+"<br>"+A.getC10()+" "+A.getC11()+"\n";
+		String resp=A.getC00()+a.getC01()+a.getC10()+a.getC11()+"";
 		return resp;
     }
 }
