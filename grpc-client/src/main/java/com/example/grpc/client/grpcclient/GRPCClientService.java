@@ -50,7 +50,7 @@ public class GRPCClientService {
 		.build();
 		MatrixServiceGrpc.MatrixServiceBlockingStub stub
 		 = MatrixServiceGrpc.newBlockingStub(channel);
-		MatrixReply A=stub.addBlock(MatrixRequest.newBuilder()
+		MatrixReply A=stub.multiplyBlock(MatrixRequest.newBuilder()
 			.setA00(1)
 			.setA01(2)
 			.setA10(5)
@@ -60,7 +60,7 @@ public class GRPCClientService {
 			.setB10(5)
 			.setB11(6)
 			.build());
-      String resp= A.getC00()*A.getC01()*A.getC10()*A.getC11()*"";
+      String resp= A.getC00()+A.getC01()+A.getC10()+A.getC11()+"";
 		return resp;
     }
 }
